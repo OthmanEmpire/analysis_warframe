@@ -20,14 +20,14 @@ class Item:
     """
     itemsGenerated = 0
 
-    def __init__(self, probability=0.0, isWanted=True):
+    def __init__(self, probability, isWanted):
         """
         Assigns an alphabet ID to the item generated and initializes.
 
         :param probability: Number, the probability of the item being dropped.
         :param isWanted: Boolean, whether this item is sought by the user.
         """
-        self.id = string.ascii_lowercase[Item.itemsGenerated]
+        self.id = string.ascii_uppercase[Item.itemsGenerated]
         Item.itemsGenerated += 1
 
         self.probability = probability
@@ -66,8 +66,6 @@ class Instance:
 
     def plotSimulationProbabilities(self, maxRuns, iterations=10000):
         """
-        maxRuns - maximum number of boss runs
-
         Plots the probability and cumulative probability of successfully getting
         all items from the boss against the number of runs on a 2D graph using
         matplotlib.
@@ -75,9 +73,10 @@ class Instance:
         :param maxRuns: Number, the maximum number of instance runs.
         :param iterations: Number, used to reduce numerical errors.
         """
-        title = "Items Dropped By Boss: {} ({})"\
+        title = "Number of Drops From Boss={}" \
+                "\nNumber of Numerical Iterations={}" \
             .format(len(self.itemsList), iterations)
-        fileName = "Items {} Iterations {}"\
+        fileName = "Items={}_Iterations={}"\
             .format(len(self.itemsList), iterations)
 
         # Initializing the y-axis tick marks
@@ -92,16 +91,20 @@ class Instance:
         # Plotting the data
         fig = plt.figure()
         fig.canvas.set_window_title(fileName)
+        fig.set_size_inches(10, 8)
         subplot = fig.add_subplot(111)
 
         plt.plot(runList,
                  runsProbabilityList,
                  color="r",
-                 label="Probability")
+                 marker="x",
+                 label="Probability For All Wanted Items In X Runs Exactly")
+
         plt.plot(runList,
                  runsCumulativeProbabilityList,
                  color="g",
-                 label="Cumulative Probability")
+                 marker="x",
+                 label="Probability For All Wanted Items In X Runs or Less")
 
         # Shrinking graph to allow extra information to be placed on the it's
         # right (items and their drop chances)
@@ -109,12 +112,29 @@ class Instance:
         subplot.set_position([box.x0, box.y0, 0.8*box.width, box.height])
 
         for i, item in enumerate(self.itemsList):
-            plt.figtext(0.78, 0.7 - i/20,
-                        "Item {}: {:<3.0f}%"
-                        .format(item.id, 100*item.probability),
+            plt.figtext(0.80, 0.84 - i/15,
+                        "Item {}: {:<3.1f}%\nWanted={}"
+                        .format(item.id, 100*item.probability, item.isWanted),
                         bbox=dict(facecolor="white", alpha=0.5),
                         fontweight='bold',
                         fontsize=12)
+
+        # Painting the columns on the right hand side below the legend
+        # that contains the probability tables
+        columns = list(zip(runList, runsCumulativeProbabilityList))
+        leftColumn = columns[:len(runList)//2]
+        rightColumn = columns[len(runList)//2:]
+
+        plt.figtext(0.76, 0.62,
+                    "Probability For All Wanted\nItems in X Runs or Less",
+                    weight='bold')
+
+        for i, (run, probability) in enumerate(leftColumn):
+            plt.figtext(0.76, 0.59 - i/50,
+                        "{:<2}, {:.1%}".format(run, probability))
+        for i, (run, probability) in enumerate(rightColumn):
+            plt.figtext(0.88, 0.59 - i/50,
+                        "{:<2}, {:.1%}".format(run, probability))
 
         # Adjusting graph settings
         plt.title(title, fontweight="bold")
@@ -122,7 +142,7 @@ class Instance:
         plt.ylabel('Probability')
         plt.yticks(yticksList)
         plt.ylim(plt.ylim()[0], 1.2)
-        plt.xlabel('Runs')
+        plt.xlabel('Instance Runs')
 
         plt.show()
 
@@ -279,12 +299,9 @@ def main():
     iterations = 10000
     runs = 50
 
-    item1 = Item(4/10)
-    item2 = Item(4/10)
-    item3 = Item(2/10)
-
-    item2.isWanted = False
-    item3.isWanted = False
+    item1 = Item(1/3, isWanted=False)
+    item2 = Item(1/3, isWanted=True)
+    item3 = Item(1/3, isWanted=True)
     itemsList = [item1, item2, item3]
 
     instance = Instance(itemsList)
