@@ -71,7 +71,10 @@ parts?
 **Answer:** No, that is false. This is known as the Gambler's Fallacy. For the
 11th run, your probability of obtaining the last item (item 'c') will not be 90%
 but equal to the probability of that item dropping in exactly one instance run
-(in this case 22.6%).
+(in this case 22.6%). What about my 12th run? Assuming you are starting from
+your 10th run, then the probability of obtaining your last item is equal to the
+probability of that item dropping in exactly two instance runs or less (in this
+case 4*(22.6 * 38*7) = 35%). And so forth.
 
 Now, if you have completed 10 runs and not all parts have dropped, then the next
 run will not have a 90% drop chance. But, if you start a new series of 10 runs
