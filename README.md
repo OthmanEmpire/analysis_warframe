@@ -38,25 +38,26 @@ as expected. The probabilties were obtained from the warframe wikia (see Credits
 section).
 
 
-### Rhino Warframe Drop Chance
-![](plot_rhino.png)
-If attempting 10 runs, you have a ~90% chance of obtaining all parts of Rhino.
+### Rhino Warframe Drop Chance (2018-04-21)
+If attempting 10 runs, you have a ~90% chance of obtaining all parts (see below).
+![](plot_rhino_(2018-04-21).png)
 
-### Excalibur Warframe Drop Chance
-![](plot_excalibur.png)
-If attempting 10 runs, you have a ~90% chance of obtaining all parts of Excalibur.
+### Excalibur Warframe Drop Chance (2018-04-21)
+If attempting 10 runs, you have a ~90% chance of obtaining all parts (see below).
+![](plot_excalibur_(2018-04-21).png)
 
-### Nyx Warframe Drop Chance
-![](plot_nyx.png)
-If attempting 10 runs, then you have a ~90% chance of obtaining all parts of Nyx.
+### Nyx Warframe Drop Chance (2018-04-21)
+If attempting 10 runs, you have a ~90% chance of obtaining all parts (see below).
+![](plot_nyx_(2018-04-21).png)
 
-### Atlas Warframe Drop Chance
-![](plot_nyx.png)
-If attempting 10 runs, then you have a ~90% chance of obtaining all parts of Atlas.
+### Atlas Warframe Drop Chance (2018-04-21)
+If attempting 10 runs, you have a ~90% chance of obtaining all parts (see below).
+![](plot_atlas_(2018-04-21).png)
 
-### Some Unfortunate Warframe Drop Chance
-![](plot_unfortunate.png)
-If attempting 29 runs, then you have a ~90% chance of obtaining this all parts of this unfortunate Warframe.
+### Some Unfortunate Warframe Drop Chance (2018-04-21)
+If attempting 29 runs, you have a ~90% chance of obtaining all parts of this
+unfortunate Warframe (see below).
+![](plot_unfortunate_(2018-04-21).png)
 
 
 Misconceptions
