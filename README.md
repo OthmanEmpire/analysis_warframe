@@ -68,7 +68,7 @@ and 11th run is roughly 90%, does this mean if I didn't obtain all parts on my
 10th run, then my next run (11th run) has a probability of 90% of obtaining all
 parts?
 
-**Answer:** No, that is false. This is known as the Gambler's Fallacy. For the
+**Answer:** No, that is false. This is known as the *Gambler's Fallacy*. For the
 11th run, your probability of obtaining the last item (item 'c') will not be 90%
 but equal to the probability of that item dropping in exactly one instance run
 (in this case 22.6%). What about my 12th run? Assuming you are starting from
@@ -80,8 +80,8 @@ Now, if you have completed 10 runs and not all parts have dropped, then the next
 run will not have a 90% drop chance. But, if you start a new series of 10 runs
 from this point, then over the span of those 10 runs, you have a 90% chance of
 obtaining all parts. Actually, the new series of 10 runs will have a higher
-probability than the first series of 10 runs because you already have 2 out of
-3 pieces.
+probability than the first series of 10 runs (i.e. higher than 90%) because you
+already have 2 out of 3 pieces.
 
 
 Author
