@@ -299,9 +299,9 @@ def main():
     iterations = 10000
     runs = 50
 
-    item1 = Item(1/3, isWanted=False)
-    item2 = Item(1/3, isWanted=True)
-    item3 = Item(1/3, isWanted=True)
+    item1 = Item(0.3872, isWanted=False)
+    item2 = Item(0.3872, isWanted=True)
+    item3 = Item(0.2256, isWanted=True)
     itemsList = [item1, item2, item3]
 
     instance = Instance(itemsList)
