@@ -12,12 +12,12 @@ is applicable to any other game with drop chances.
 
 A Bit About The Plots
 ---------------------
-The curve of interest is the green line (cumulative probability) that shows
-the probability of obtaining all warframe parts after X runs or less. On the
-other hand, the red line (exact probability) shows the probability of obtaining
-all warframe parts after X runs exactly.
+In all the plots, the green line is the probability of obtaining all warframe
+parts after X runs or less. This a cumulative probability plot and our main
+focus. The red line on the other hand is the probability of obtaining all the
+warframe parts after X runs exactly.
 
-So for instance looking at Rhino's graph below (first graph), we have a ~0.02
+So for instance looking at Rhino's plot below (first plot), we have a ~0.02
 chance of all Rhino parts dropping after exactly 10 runs (red line). However,
 we have a ~0.91 chance of getting all Rhino parts in any of the runs leading
 up to the 10th run (green line).
@@ -25,17 +25,18 @@ up to the 10th run (green line).
 
 Validty of Simulation
 ---------------------
-The graphs are obtained through numerical means so there is some small error
-between them and reality but nothing significant. Crudely speaking, each graph
-simulates 50 consecutive boss runs and repeats this process 100,000 times to
-arrive at a better average of the probabilities (so a total of 5,000,000 runs).
+The graphs are obtained through numerical means rather than exact computation
+hence introducing some error though insignificant in this case. Crudely
+speaking, each plot below simulates 50 consecutive boss runs and repeats this
+process 100,000 times to average the probabilities, thus reducing errors
+stemming for numerical computation.
 
 As for the correctness of the model, we stored the amount of times each item
 was dropped during the simulation. We then calculated the drop chance of each
 item purely from this data and the results were no more than 5% from the
-input probabilities fed into the simulation. Thus the simulation is behaving
-as expected. The probabilties were obtained from the warframe wikia (see Credits
-section).
+input probabilities fed into the simulation, thus confirming that simulation is
+functioning correctly. The input probabilities were obtained from the warframe
+wikia (see Credits section).
 
 
 ### Rhino Warframe Drop Chance (2018-04-21)
@@ -62,31 +63,22 @@ unfortunate Warframe (see below).
 
 Misconceptions
 --------------
-Question: Does this mean after I do 10 runs of Excalibur, my chances of
-getting the last piece (say item 'c') is roughly 90% on the 11th and subsequent
-runs?
+**Question:** Since the probability of obtaining all parts of Atlas on the 10th
+and 11th run is roughly 90%, does this mean if I didn't obtain all parts on my
+10th run, then my next run (11th run) has a probability of 90% of obtaining all
+parts?
 
-Answer: No, that isn't true, that is known as the Gambler's Fallacy. For the
-11th run, your probability of obtaining the last item (item 'c') will still
-40% as always.
+**Answer:** No, that is false. This is known as the Gambler's Fallacy. For the
+11th run, your probability of obtaining the last item (item 'c') will not be 90%
+but equal to the probability of that item dropping in exactly one instance run
+(in this case 22.6%).
 
-If you have completed 10 runs and not all your Warframe parts have dropped,
-then the next subsequent run will not have an above 90% drop chance. But, if
-you start a new series of 10 runs from this point, then over the span of
-those runs, you have a 90% chance of obtaining all parts (actually ~99.7%).
-The new series of 10 runs have a higher probability than the first series of 10
-runs because you already have 2 out of 3 pieces. Now suppose after completing
-the second series of runs (so a total of 20 runs so far), your last piece didn't
-drop unfortunately. Then, if you plan on going for another series of 10
-runs, you would still have a ~99.7% chance of getting the last piece (with a
-total of 30 runs).
-
-This probability differs from if you initially attempted to complete a series
-of 30 runs without 'stopping' (which is ~99.9%). Why? Because in the case of
-where we 'stopped', the probability of obtaining all the parts didn't occur in
-the first nor second series of 10 runs. So we only had 10 more tries as oppose
-to 30 hence the probability being less (even though we had 2 out of 3 items
-already which increased it).
+Now, if you have completed 10 runs and not all parts have dropped, then the next
+run will not have a 90% drop chance. But, if you start a new series of 10 runs
+from this point, then over the span of those 10 runs, you have a 90% chance of
+obtaining all parts. Actually, the new series of 10 runs will have a higher
+probability than the first series of 10 runs because you already have 2 out of
+3 pieces.
 
 
 Author
